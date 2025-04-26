@@ -1,1 +1,1 @@
-# Individual-Corinthians
+Projeito Individual sobre o Sport Club Corinthians Paulista, onde será mostrado um pouco sobre o porque fiz essa escolha de tema, além de algumas curiosidades sobre o clube e alguns conceitos das matérias que estou aprendendo neste semestre da faculdade.
