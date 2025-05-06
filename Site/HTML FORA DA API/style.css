@@ -118,7 +118,7 @@ select {
 
 
 .homeTodoPoderoso{
-    background-image: url(imgs/fundobanner.png);
+    background-image: url(imgs/fundoLogin.png);
     width: 100%;
     height: 1000px;
     background-size: cover;
@@ -234,9 +234,6 @@ select {
     margin-bottom: 40px;
 }
 
-/* _______________________________________________________________________________________ */
-
-
 
 
 /* __________________________________________Rodapé____________________________________________ */
@@ -244,10 +241,10 @@ select {
     color: black;
     background-color: white;
     height: 100px;
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .redes-sociais{
@@ -288,10 +285,13 @@ select {
     flex-direction: column;
     height: 70px;
     justify-content: space-between;
+    
 }
-/* __________________________________________________________________________________________________________ */
 
-/* Página Sobre Nós */
+
+/* _______________________________________Sobre Nós__________________________________________________________ */
+
+
 
 .bannerSN {
     margin-top: 100px;
@@ -421,6 +421,7 @@ select {
 }
 
 .container_conteudo_SN1{
+    padding-top: 150px;
     width: 100%;
     height: 800px;
     display: flex;
@@ -443,6 +444,7 @@ select {
 }
 
 .conteudo_SN1{
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -468,49 +470,82 @@ select {
 }
 
 
-/* Conteúdo da página - Login, Cadastro e Simulador */
+/* __________________________________________Login_________________________________________________ */
 
-.containerLCS {
-    margin-top: 130px;
+.containerL {
+    margin-top: 110px;
     display: flex;
     justify-content: center;
     padding: 110px;
 }
 
-.containerLCS .box {
-    width: 1000px;
+.containerL .box {
+    width: 900px;
     height: fit-content;
     text-align: center;
-    background-color: #267652a0;
+    background-color: grey;
     border-radius: 10px;
-    border: solid 2px #155C3A;
+    border: solid 2px white;
 }
 
-.containerLCS .box .formulario {
+.containerL {
+    background-color: black;
+    background-image: url(imgs/fundoLogin.png);
+    width: auto;
+    height: 450px;
+    background-size: cover;
+}
+
+.containerL .box .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+
+}
+
+.formulario button{
+    background-color: darkslateblue;
+}
+
+/* __________________________________________________Cadastro__________________________________________________ */
+
+.containerC {
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    padding: 110px;
+}
+
+.containerC .box {
+    width: 900px;
+    height: min-content;
+    text-align: center;
+    background-color: grey;
+    border-radius: 10px;
+    border: solid 2px white;
+}
+
+.containerC {
+    background-color: black;
+    background-image: url(imgs/fundoLogin.png);
+    width: auto;
+    height: 700px;
+    background-size: cover;
+}
+
+.containerC .box .formulario {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 30px;
 }
 
-/* Resultado da calculadora financeira */
 
-.containerLCS #div_resultado {
-    margin: 5px 30px 30px 30px;
-    width: 940px;
-    font-size: large;
-}
-
-.containerLCS #div_resultado .result_positivo {
-    color: greenyellow;
-    font-weight: bold;
-}
-
-/* Cadastro */
-
+/* ________________________________________________Cadastro - Texto_________________________________________________ */
 
 .div_nav_cadastro{
-    background-color: #155C3A;
+    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
@@ -535,7 +570,8 @@ select {
     margin-bottom: 20px;
 }
 
-/* Dashboards */
+/* _____________________________________Dashboards______________________________________________ */
+
 .containerDASH {
     margin: 100px 100px 50px 100px;
     display: flex;
