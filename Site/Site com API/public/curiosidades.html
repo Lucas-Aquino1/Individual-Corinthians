@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+  <div class="div_nav">
+      <a href="index.html"><img src="imgs/logoPreto2.png" alt="Simbolo Corinthians" id="img_logo_nav"></a>
+      <ul class="links">
+          <li>
+              <a href="index.html" class="link_nav">Home</a>
+          </li>
+          <li>
+              <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
+          </li>
+          <li>
+              <a href="curiosidades.html" class="link_nav">Curiosidades</a>
+          </li>
+          <li>
+              <a href="quiz.html" class="link_nav">Quiz</a>
+          </li>
+          <li>
+              <a href="login.html" class="link_nav">Login</a>
+          </li>
+          
+      </ul>
+  </div>
+
+    <div class="curiosidade">
+            <button id="gerarCuriosidade" onclick="gerarCuriosidade()">GERAR CURIOSIDADE</button>
+        <div class="boxCuriosidade" id="box">
+
+        </div>
+    </div>
+
+
+
+  <div class="footer">
+      <div class="redes-sociais">
+          <h4>Redes sociais</h4>
+          <ul>
+              <li><img src="imgs/instagram.png" alt=""></li>
+              <li><img src="imgs/youtube.png" alt=""></li>
+              <li><img src="imgs/linkedin-Photoroom.png" alt=""></li>
+          </ul>
+      </div>
+      <div class="logo">
+          <img src="imgs/logoNav.jpg" alt="">
+      </div>
+      <div class="contato">
+          <h4>Contato</h4>
+          <p>lucas.aquino@sptech.school</p>
+          <p>+55 (11) 999999999</p>
+      </div>
+  </div>
+</body>
+
+</html>
+<script>
+    function gerarCuriosidade(){
+        var curiosidade1 = "";
+        var curiosidade2 = "";
+        var curiosidade3 = "";
+        var curiosidade4 = "";
+        var curiosidade5 = "";
+        var curiosidade6 = "";
+        var curiosidade7 = "";
+        var curiosidade8 = "";
+
+
+        const vetorCuriosidade = [curiosidade1, curiosidade2, 
+                                  curiosidade3, curiosidade4, 
+                                  curiosidade5, curiosidade6, 
+                                  curiosidade7, curiosidade8
+                                ];
+
+
+
+        const curiosidadeAleatoria = vetorCuriosidade[Math.round(Math.random() * vetorCuriosidade.length)]
+
+        let box = document.getElementById("box");
+
+        // pra fazer aparecer a box com a curiosidade
+        box.style.display = "block";
+        box.textContent = curiosidadeAleatoria;
+
+    }
+</script>

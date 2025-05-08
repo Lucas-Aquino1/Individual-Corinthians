@@ -5,13 +5,13 @@ a {
 }
 
 body {
-    background-color: #F7EDE1;
+    background-color: grey;
     font-family: "Exo 2", Segoe UI;
     margin: 0;
     padding: 0;
 }
 
-input {
+.formulario input {
     border-radius: 10px;
     width: 300px;
     height: 30px;
@@ -19,23 +19,20 @@ input {
     font-family: "Exo 2", Segoe UI;
 }
 
-button {
+.formulario button {
     margin: 20px;
     width: 100px;
     height: 40px;
     border-radius: 10px;
     color: white;
-    background-color: #416B44;
+    background-color: darkslateblue;
     font-family: "Exo 2", Segoe UI;
     cursor: pointer;
-}
-
-.button {
     margin-bottom: 10px;
 }
 
 
-.button h2{
+.formulario .button h2{
     margin: 0;
 }
 
@@ -177,61 +174,52 @@ select {
 
 /* ______________________________________ELENCO________________________________________________ */
 
-.beneficios .beneficio1 .div_texto {
-    padding: 20px;
-    background-color: white;
-    border: solid 2px white;
-    border-radius: 10px;
+.beneficiosTitulo {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-.beneficios .beneficio2 .div_texto {
-    padding: 20px;
-    background-color: white;
-    border: solid 2px white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.beneficios .beneficio3 .div_texto {
-    padding: 20px;
-    background-color: white;
-    border: solid 2px white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.containerHome .beneficiosTitulo h1{
+.tituloElenco {
+    padding-top: 20px;
     text-align: center;
-    font-size: 50px;
+    font-size: 32px;
+    margin-bottom: 30px;
     color: white;
 }
 
-.containerHome .beneficios {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    
-}
-
-.containerHome .beneficios p {
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
     width: 300px;
+    display: flex;
+    padding: 15px;
+    align-items: center;
 }
 
-.containerHome .beneficios img {
-    margin-bottom: 40px;
+
+.card img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.info {
+    flex: 1;
+}
+
+.info h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.info p {
+    margin: 5px 0;
+    font-size: 14px;
 }
 
 
@@ -503,9 +491,6 @@ select {
 
 }
 
-.formulario button{
-    background-color: darkslateblue;
-}
 
 /* __________________________________________________Cadastro__________________________________________________ */
 
@@ -614,4 +599,89 @@ select {
   50%  {transform: rotate(25deg)}
   75%  {transform: rotate(-25deg)}
   100% {transform: rotate(25deg)}
+}
+
+/* ____________________________________________QUIZ___________________________________________ */
+
+/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
+/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+
+/* :root {
+    --primary-brand-color: #ED145B;
+    --secondary-brand-color: #0762C8;
+    --success: #198754;
+    --success-dark: #095c36;
+    --success-light: #9dd3ba;
+    --warning: #ffc107;
+    --warning-dark: #705400;
+    --warning-light: #fdebb3;
+    --danger: #dc3545;
+    --danger-dark: #990c19;
+    --danger-light: #f0c1c6;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #E8E8E8;
+}
+
+body {
+    color: var(--new-black);
+    background-color: var(--new-white);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+} */
+
+.pontuacaoEJogo{
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+}
+.pontuacaoEJogo button{
+    margin: 20px;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    background-color: darkslateblue;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/* ___________________________________CURIOSIDADES_____________________________________ */
+
+.curiosidade {
+    background-image: url(fundoLogin.png);
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    padding-bottom: 800px;
+}
+
+
+.curiosidade #gerarCuriosidade {
+    margin: 20px;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    background-color: darkslateblue;
+    cursor: pointer; 
+}
+
+.curiosidade .boxCuriosidade {
+    display: none; 
+    margin-top: 100px;
+    padding: 200px;
+    background-color: white;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
 }
