@@ -38,12 +38,14 @@
   </div>
 
     <div class="curiosidade">
-            <button id="gerarCuriosidade" onclick="gerarCuriosidade()">GERAR CURIOSIDADE</button>
+        <button id="gerarCuriosidade" onclick="gerarCuriosidade()">GERAR CURIOSIDADE</button>
+        
         <div class="boxCuriosidade" id="box">
-
+            
         </div>
-    </div>
-
+    </div>      
+        
+    
 
 
   <div class="footer">
@@ -69,14 +71,14 @@
 </html>
 <script>
     function gerarCuriosidade(){
-        var curiosidade1 = "";
-        var curiosidade2 = "";
-        var curiosidade3 = "";
-        var curiosidade4 = "";
-        var curiosidade5 = "";
-        var curiosidade6 = "";
-        var curiosidade7 = "";
-        var curiosidade8 = "";
+        var curiosidade1 = "qq";
+        var curiosidade2 = "aa";
+        var curiosidade3 = "qq";
+        var curiosidade4 = "aa";
+        var curiosidade5 = "jj";
+        var curiosidade6 = "rr";
+        var curiosidade7 = "ss";
+        var curiosidade8 = "hh";
 
 
         const vetorCuriosidade = [curiosidade1, curiosidade2, 
@@ -87,7 +89,7 @@
 
 
 
-        const curiosidadeAleatoria = vetorCuriosidade[Math.round(Math.random() * vetorCuriosidade.length)]
+        const curiosidadeAleatoria = vetorCuriosidade[Math.round(Math.random() * (vetorCuriosidade.length - 1))]
 
         let box = document.getElementById("box");
 
