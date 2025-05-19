@@ -181,14 +181,21 @@ select {
     justify-content: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    background-color: black;
+}
+
+.containerElenco {
+    background-color: black !important;
 }
 
 .tituloElenco {
-    padding-top: 20px;
+    padding-top: 150px;
     text-align: center;
     font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: white;
+    background-image: url(imgs/fundoLogin.png);
+    height: 100px;
 }
 
 .card {
