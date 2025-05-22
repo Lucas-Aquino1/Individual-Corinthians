@@ -25,18 +25,19 @@
             <li>
                 <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
             </li>
-            <li>
-              <a href="elenco.html" class="link_nav">Elenco</a>
+            <li id="elenco">
+                <a href="elenco.html" class="link_nav">Elenco</a>
             </li>
-            <li>
+            <li id="curiosidades">
                 <a href="curiosidades.html" class="link_nav">Curiosidades</a>
             </li>
-            <li>
+            <li id="quiz">
                 <a href="quiz.html" class="link_nav">Quiz</a>
             </li>
-            <li>
+            <li id="login">
                 <a href="login.html" class="link_nav">Login</a>
             </li>
+            
         </ul>
     </div>
 
@@ -86,6 +87,19 @@
 
 <script>
 
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    if(idUsuario == null || idUsuario == undefined){
+        elenco.style.display = "none";
+        curiosidades.style.display = "none";
+        quiz.style.display = "none";
+    }
+    if(idUsuario != null || idUsuario != undefined){
+        login.innerHTML = `<a href="dashboard.html" class="link_nav">Dashboard</a>`
+    }
+
+
+
 
     function entrar() {
         aguardar();
@@ -126,7 +140,7 @@
                     sessionStorage.CPF_USUARIO = json.cpf
 
                     setTimeout(function () {
-                        window.location = "dashboard.html";
+                        window.location = "index.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

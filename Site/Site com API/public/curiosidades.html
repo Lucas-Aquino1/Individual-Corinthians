@@ -33,7 +33,7 @@
           <li>
               <a href="quiz.html" class="link_nav">Quiz</a>
           </li>
-          <li>
+          <li id="login">
               <a href="login.html" class="link_nav">Login</a>
           </li>
           
@@ -73,6 +73,16 @@
 
 </html>
 <script>
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    // logica para o botão login virar o botão dashboard depois de fazer login
+    if(idUsuario != null || idUsuario != undefined){
+        login.innerHTML = `<a href="dashboard.html" class="link_nav">Dashboard</a>`
+    }
+
+
+
+
     function gerarCuriosidade(){
         var curiosidade1 = "qq";
         var curiosidade2 = "aa";

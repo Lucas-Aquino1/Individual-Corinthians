@@ -35,7 +35,7 @@
             <li>
                 <a href="quiz.html" class="link_nav">Quiz</a>
             </li>
-            <li>
+            <li id="login">
                 <a href="login.html" class="link_nav">Login</a>
             </li>
 
@@ -131,6 +131,15 @@
 
 </html>
 <script>
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    // logica para o botão login virar o botão dashboard depois de fazer login
+    if(idUsuario != null || idUsuario != undefined){
+        login.innerHTML = `<a href="dashboard.html" class="link_nav">Dashboard</a>`
+    }
+
+
     const listaDeQuestoes = [
 
         {
@@ -398,5 +407,28 @@
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
 
+
+
+        function salvarResultado(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        
+        fetch("/quiz/salvarResultado", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer: idUsuario,
+                acertosServer: certas,
+                porcentagemFinalDeAcertosServer: porcentagemFinalDeAcertos
+            })
+        }).then(function(resposta){
+            if(resposta.ok){
+                alert("Resultado salvo com sucesso!");
+            } else {
+                alert("Erro ao salvar resultado.");
+            }
+        });
+    }
     }
 </script>

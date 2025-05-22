@@ -24,16 +24,16 @@
             <li>
                 <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
             </li>
-            <li>
+            <li id="elenco">
                 <a href="elenco.html" class="link_nav">Elenco</a>
             </li>
-            <li>
+            <li id="curiosidades">
                 <a href="curiosidades.html" class="link_nav">Curiosidades</a>
             </li>
-            <li>
+            <li id="quiz">
                 <a href="quiz.html" class="link_nav">Quiz</a>
             </li>
-            <li>
+            <li id="login">
                 <a href="login.html" class="link_nav">Login</a>
             </li>
 
@@ -103,3 +103,20 @@
 </body>
 
 </html>
+
+<script>
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    // lógica para quem não estiver logado não acessar as paginas
+    if(idUsuario == null || idUsuario == undefined){
+        elenco.style.display = "none";
+        curiosidades.style.display = "none";
+        quiz.style.display = "none";
+    }
+
+    // logica para o botão login virar o botão dashboard depois de fazer login
+    if(idUsuario != null || idUsuario != undefined){
+        login.innerHTML = `<a href="dashboard.html" class="link_nav">Dashboard</a>`
+    }
+
+</script>
