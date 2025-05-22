@@ -539,7 +539,7 @@ select {
     background-color: black;
     background-image: url(imgs/fundoarenajogadores.png);
     width: auto;
-    height: 700px;
+    height: 900px;
     background-size: cover;
 }
 
@@ -547,7 +547,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 

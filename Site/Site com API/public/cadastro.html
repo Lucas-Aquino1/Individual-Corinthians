@@ -18,34 +18,34 @@
   <div class="div_nav">
     <a href="index.html"><img src="imgs/logoPreto2.png" alt="Simbolo Corinthians" id="img_logo_nav"></a>
     <ul class="links">
-        <li>
-            <a href="index.html" class="link_nav">Home</a>
-        </li>
-        <li>
-            <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
-        </li>
-        <li>
-              <a href="elenco.html" class="link_nav">Elenco</a>
-          </li>
-        <li>
-            <a href="curiosidades.html" class="link_nav">Curiosidades</a>
-        </li>
-        <li>
-            <a href="quiz.html" class="link_nav">Quiz</a>
-        </li>
-        <li>
-            <a href="login.html" class="link_nav">Login</a>
-        </li>
+      <li>
+        <a href="index.html" class="link_nav">Home</a>
+      </li>
+      <li>
+        <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
+      </li>
+      <li>
+        <a href="elenco.html" class="link_nav">Elenco</a>
+      </li>
+      <li>
+        <a href="curiosidades.html" class="link_nav">Curiosidades</a>
+      </li>
+      <li>
+        <a href="quiz.html" class="link_nav">Quiz</a>
+      </li>
+      <li>
+        <a href="login.html" class="link_nav">Login</a>
+      </li>
     </ul>
-</div>
+  </div>
 
 
-<div class="containerC">
-<div class="box">
-    <div>
+  <div class="containerC">
+    <div class="box">
+      <div>
         <h1>Cadastro</h1>
-    </div>
-    <div class="formulario">
+      </div>
+      <div class="formulario">
         <p>Nome Completo</p>
         <input type="text" placeholder="Seu nome" id="ipt_nome">
         <p>Email</p>
@@ -56,32 +56,63 @@
         <input type="password" placeholder="***********" id="ipt_senha1">
         <p>Confirmar senha</p>
         <input type="password" placeholder="***********" id="ipt_senha2">
+        <p>Você é sócio do programa Fiel Torcedor?</p>
+        <input type="checkbox" id="ipt_sociotorcedorSim"> Sim
+        <p>Qual seu jogador preferido?</p>
+        <select name="jogadores" id="ipt_jogadorPreferido">
+          <option value="Yuri Alberto">Yuri Alberto</option>
+          <option value="Rodrigo Garro">Rodrigo Garro</option>
+          <option value="Memphis">Memphis</option>
+          <option value="Romero">Romero</option>
+          <option value="Hugo Souza">Hugo Souza</option>
+          <option value="André Carrillo">André Carrillo</option>
+          <option value="Breno Bidon">Breno Bidon</option>
+          <option value="Fabrizio Angileri">Fabrizio Angileri</option>
+          <option value="Matheuzinho">Matheuzinho</option>
+          <option value="Matheus Bidu">Matheus Bidu</option>
+          <option value="André Ramalho">André Ramalho</option>
+          <option value="Cacá">Cacá</option>
+          <option value="Félix Torres">Félix Torres</option>
+          <option value="Gustavo Henrique">Gustavo Henrique</option>
+          <option value="Alex Santana">Alex Santana</option>
+          <option value="José Martínez">José Martínez</option>
+          <option value="Ryan">Ryan</option>
+          <option value="Maycon">Maycon</option>
+          <option value="Raniele">Raniele</option>
+          <option value="Igor Coronado">Igor Coronado</option>  
+          <option value="Talles Magno">Talles Magno</option>
+        </select>
+        <p>Você já foi para a Neo Quimica Arena?</p>
+        <input type="checkbox" id="ipt_visitouEstadio"> Sim
+        <!-- TERMINAR DE FAZER AS VARIAVEIS -->
+
+
         <button onclick="cadastrar()">Cadastrar</button>
         <div id="cadastroResposta"></div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
 
 
-<div class="footer">
-<div class="redes-sociais">
-    <h4>Redes sociais</h4>
-    <ul>
+  <div class="footer">
+    <div class="redes-sociais">
+      <h4>Redes sociais</h4>
+      <ul>
         <li><img src="imgs/instagram.png" alt=""></li>
         <li><img src="imgs/youtube.png" alt=""></li>
         <li><img src="imgs/linkedin-Photoroom.png" alt=""></li>
-    </ul>
-</div>
-<div class="logo">
-    <img src="imgs/logoNav.jpg" alt="">
-</div>
-<div class="contato">
-    <h4>Contato</h4>
-    <p>lucas.aquino@sptech.school</p>
-    <p>+55 (11) 999999999</p>
-</div>
-</div>
+      </ul>
+    </div>
+    <div class="logo">
+      <img src="imgs/logoNav.jpg" alt="">
+    </div>
+    <div class="contato">
+      <h4>Contato</h4>
+      <p>lucas.aquino@sptech.school</p>
+      <p>+55 (11) 999999999</p>
+    </div>
+  </div>
 
 </body>
 
@@ -102,29 +133,44 @@
     var senhaVar = ipt_senha1.value;
     var confirmacaoSenhaVar = ipt_senha2.value;
     var cpfVar = ipt_cpf.value;
-    
+    var socioTorcedorVar = ipt_sociotorcedorSim.value
+    var jogadorPreferidoVar = ipt_jogadorPreferido.value
+    var visitouEstadioVar = ipt_visitouEstadio.value
+
+    if(socioTorcedorVar){
+      socioTorcedorVar = "S"
+    } else {
+      socioTorcedorVar = "N"
+    }
+
+    if(visitouEstadioVar){
+      visitouEstadioVar = "S"
+    } else {
+      visitouEstadioVar = "N"
+    }
+
     let emailTemArroba = emailVar.includes('@');
     let senhaTemEspaco = senhaVar.includes(' ');
     let confirmarSenhaTemEspaco = confirmacaoSenhaVar.includes(' ');
 
 
-    
-    
+
+
 
     // Verificando se há algum campo em branco
     if (nomeVar == '' || emailVar == '' || cpfVar == '' || senhaVar == '' || confirmacaoSenhaVar == '') {
-        cadastroResposta.innerHTML = `Por favor, preencha todos os campos.`
+      cadastroResposta.innerHTML = `Por favor, preencha todos os campos.`
     } else if (emailTemArroba == false) {
-        cadastroResposta.innerHTML = `Insira um email válido.`
+      cadastroResposta.innerHTML = `Insira um email válido.`
     } else if (senhaVar != confirmacaoSenhaVar) {
-        cadastroResposta.innerHTML = `Certifique-se de que preencheu os campos 'Senha' e 'Confirmar senha' corretamente.`;
+      cadastroResposta.innerHTML = `Certifique-se de que preencheu os campos 'Senha' e 'Confirmar senha' corretamente.`;
     } else if (senhaTemEspaco || confirmarSenhaTemEspaco) {
-        cadastroResposta.innerHTML = `A senha não pode conter espaços.`
-    }else if(cpfVar.length != 11){
-        cadastroResposta.innerHTML = `O CPF deve conter 11 dígitos.`
+      cadastroResposta.innerHTML = `A senha não pode conter espaços.`
+    } else if (cpfVar.length != 11) {
+      cadastroResposta.innerHTML = `O CPF deve conter 11 dígitos.`
     }
     else {
-        cadastroResposta.innerHTML = `<b>
+      cadastroResposta.innerHTML = `<b>
         Cadastro realizado com sucesso!</b><br><br>
         <a href="login.html">Login</a>
          
@@ -145,14 +191,17 @@
         emailServer: emailVar,
         senhaServer: senhaVar,
         cpfServer: cpfVar,
-        
+        socioTorcedorServer: socioTorcedorVar,
+        jogadorPreferidoServer: jogadorPreferidoVar,
+        visitouEstadioServer: visitouEstadioVar
+
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          
+
 
           cadastroResposta.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
@@ -176,5 +225,5 @@
   }
 
 
-  
+
 </script>
