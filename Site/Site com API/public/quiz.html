@@ -8,9 +8,9 @@
 
     <title>Quiz</title>
 
-    <script src="./js/sessao.js"></script>
+    <script src="sessao.js"></script>
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -27,8 +27,8 @@
                 <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
             </li>
             <li>
-              <a href="elenco.html" class="link_nav">Elenco</a>
-          </li>
+                <a href="elenco.html" class="link_nav">Elenco</a>
+            </li>
             <li>
                 <a href="curiosidades.html" class="link_nav">Curiosidades</a>
             </li>
@@ -38,67 +38,73 @@
             <li>
                 <a href="login.html" class="link_nav">Login</a>
             </li>
-            
+
         </ul>
     </div>
 
-    <div class="pontuacaoEJogo">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div class="pontuacao">
-            <div class="pontuacaoDuranteJogo">
-                <span>Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span>Quantidade de erros: <span id="spanErradas"></span></span>
-            </div>
-            <div class="pontuacaoFinalJogo">
-                <span id="pontuacaoFinal">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-                <span id="msgFinal">***</span>
-            </div>
-        </div>
 
-        <div class="jogo">
 
-            <div id="infoQuestao">
-                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                    questões.</span>
+    <div class="containerQUIZ">
+        <div class="pontuacaoEJogo">
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+
+            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                </div>
+                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                        <span id="spanPontuacaoFinal">***</span>
+                    </span>
+                    <br><span id="msgFinal" class="width-fit-content"
+                        style="align-items: center; margin: auto;">***</span>
+                </div>
             </div>
 
-            <div id="perguntaDaQuestaoAtual">
-                <span id="spanQuestaoExibida"></span>
-            </div>
+            <div id="jogo" class="width-fit-content flex-colunar border-secondary">
 
-            <div id="infoAlternativas">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
+                <div id="infoQuestao" class="padding-8">
+                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
+                        questões.</span>
+                </div>
 
-            <div id="opcoes">
-                <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </span>
-                <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </span>
-            </div>
+                <div id="perguntaDaQuestaoAtual" class="padding-8">
+                    <span id="spanQuestaoExibida" class="text-bold"></span>
+                </div>
 
-            <div id="botoes">
-                <button onclick="submeter(); avancar()" id="btnSubmeter">Submeter resposta</button>
-                <!-- <button onclick="" id="btnProx" disabled>Avançar para próxima questão</button> -->
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-            </div>
+                <div id="infoAlternativas" class="padding-8">
+                    <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                </div>
 
+                <div id="opcoes" class="flex-colunar padding-8">
+                    <span>
+                        <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                    </span>
+                </div>
+
+                <div id="botoes" class="flex-colunar padding-8">
+                    <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                    <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -119,7 +125,8 @@
             <p>lucas.aquino@sptech.school</p>
             <p>+55 (11) 999999999</p>
         </div>
-        </div>
+    </div>
+
 </body>
 
 </html>
@@ -127,31 +134,86 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
-            alternativaCorreta: "alternativaC"
+            "pergunta": "Em que ano o Corinthians foi campeão mundial pela FIFA?",
+            "alternativaA": "2000",
+            "alternativaB": "2010",
+            "alternativaC": "2012",
+            "alternativaD": "2005",
+            "alternativaCorreta": "alternativaC"
         },
-
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            "pergunta": "Qual estádio é conhecido como a casa do Corinthians?",
+            "alternativaA": "Morumbi",
+            "alternativaB": "Maracanã",
+            "alternativaC": "Allianz Parque",
+            "alternativaD": "Neo Química Arena",
+            "alternativaCorreta": "alternativaD"
         },
-
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            "pergunta": "Quem foi o técnico do Corinthians na conquista da Libertadores de 2012?",
+            "alternativaA": "Tite",
+            "alternativaB": "Luxemburgo",
+            "alternativaC": "Mano Menezes",
+            "alternativaD": "Carille",
+            "alternativaCorreta": "alternativaA"
+        },
+        {
+            "pergunta": "Quantas vezes o Corinthians já foi campeão brasileiro (até 2025)?",
+            "alternativaA": "5 vezes",
+            "alternativaB": "7 vezes",
+            "alternativaC": "6 vezes",
+            "alternativaD": "4 vezes",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Contra qual clube o Corinthians conquistou seu primeiro título da Libertadores?",
+            "alternativaA": "Boca Juniors",
+            "alternativaB": "River Plate",
+            "alternativaC": "Santos",
+            "alternativaD": "Universidad de Chile",
+            "alternativaCorreta": "alternativaA"
+        },
+        {
+            "pergunta": "Em que ano o Corinthians foi fundado?",
+            "alternativaA": "1909",
+            "alternativaB": "1910",
+            "alternativaC": "1912",
+            "alternativaD": "1920",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Qual jogador marcou o gol do título mundial em 2012?",
+            "alternativaA": "Sheik",
+            "alternativaB": "Paulinho",
+            "alternativaC": "Guerrero",
+            "alternativaD": "Danilo",
+            "alternativaCorreta": "alternativaC"
+        },
+        {
+            "pergunta": "Qual é o mascote oficial do Corinthians?",
+            "alternativaA": "Gavião",
+            "alternativaB": "Mosqueteiro",
+            "alternativaC": "Tigre",
+            "alternativaD": "Urubu",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Qual foi o recorde histórico conquistado pelo Corinthians no estádio da Vila Belmiro em 2011?",
+            "alternativaA": "Maior goleada no Santos",
+            "alternativaB": "Vitória que garantiu o título da Libertadores",
+            "alternativaC": "Primeira vitória em finais",
+            "alternativaD": "Quebra de invencibilidade do Santos na Vila",
+            "alternativaCorreta": "alternativaD"
+        },
+        {
+            "pergunta": "Quantos gols o Corinthians marcou na final do Mundial de Clubes da FIFA em 2012?",
+            "alternativaA": "1 gol",
+            "alternativaB": "2 gols",
+            "alternativaC": "3 gols",
+            "alternativaD": "Nenhum gol",
+            "alternativaCorreta": "alternativaA"
         }
+
 
     ]
 
@@ -310,7 +372,7 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Infelizmente você não foi muito bem..."
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
@@ -318,26 +380,23 @@
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Parabéns! Você é um louco do bando mesmo."
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
-
-
-        
 
     }
 </script>
