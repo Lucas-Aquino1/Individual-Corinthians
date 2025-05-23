@@ -100,8 +100,9 @@
                 <div id="botoes" class="flex-colunar padding-8">
                     <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                     <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
                     <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                    <button onclick="salvarResultado()" id="btnConcluir" disabled>Finalizar Quiz</button>
+                   
                 </div>
 
             </div>
@@ -251,7 +252,7 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-        // btnConcluir.disabled = true
+        btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
 
@@ -404,14 +405,17 @@
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
-        // btnConcluir.disabled = true
+        btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
 
 
+    }
 
         function salvarResultado(){
         var idUsuario = sessionStorage.ID_USUARIO;
-        
+        // calculo de Arq Comp
+        var porcentagemFinalDeAcertos = (pontuacaoFinal / quantidadeDeQuestoes) * 100;
+
         fetch("/quiz/salvarResultado", {
             method: "POST",
             headers: {
@@ -419,7 +423,7 @@
             },
             body: JSON.stringify({
                 idUsuarioServer: idUsuario,
-                acertosServer: certas,
+                acertosServer: pontuacaoFinal,
                 porcentagemFinalDeAcertosServer: porcentagemFinalDeAcertos
             })
         }).then(function(resposta){
@@ -428,7 +432,11 @@
             } else {
                 alert("Erro ao salvar resultado.");
             }
-        });
-    }
+        }
+    ).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 </script>
