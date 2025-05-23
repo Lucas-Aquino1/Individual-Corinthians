@@ -34,10 +34,12 @@ CREATE TABLE resultadosQuiz (
 
 
 
+
+
 SELECT * from usuario;
 SELECT * from resultadosQuiz;
 
-truncate usuario;
+
 
 
 
