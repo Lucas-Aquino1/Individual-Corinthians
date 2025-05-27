@@ -637,3 +637,164 @@ select {
     width: 300px;
     text-align: center;
 }
+
+/* __________________________________DASHBOARD__________________________________ */
+
+
+/* NAVBAR LATERAL */
+.janela {
+  display: flex;
+  width: 100vw;
+  background-color: #161618;
+}
+
+.janela .header-left a {
+  text-decoration: none;
+  color: white;
+}
+
+.janela .header-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100%;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  border-right: 3px solid white;
+  background-color: black;
+}
+
+.janela .header-left h1 {
+  color: white;
+}
+
+.janela .hello {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 400px;
+}
+
+.janela .hello h3 {
+  color: aliceblue;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.janela .hello h3 span {
+  font-weight: 800;
+}
+
+/* .janela .btn-nav {
+  width: 40%;
+  color: white;
+  background-color: #e6005a;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+}
+
+.janela .btn-nav-white {
+  width: 40%;
+  background-color: white;
+  border: 3px solid #e6005a;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+} */
+
+/* .janela .btn-nav-white h3 {
+  color: #e6005a;
+  padding: 0;
+  margin: 0;
+} */
+
+.btn-logout h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.janela .btn-logout {
+  width: 30%;
+  background-color: #32b9cd;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 15px;
+  /* margin-bottom: 100px; */
+  cursor: pointer;
+  margin-top: 10px;
+  
+}
+
+/* CONTEÚDO*/
+.conteudoDash {
+  margin-left: 15%;
+  width: 85%;
+  padding: 40px 20px;
+  background-color: azure;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.containerDash {
+  text-align: center;
+  color: white;
+}
+
+/* .containerDash .enunciado h1 {
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 30px;
+} */
+
+/* KPIs */
+.containerDash .div_indicadores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.containerDash .indicador {
+  background-color: grey;
+  color: white;
+  border: solid 3px black;
+  border-radius: 10px;
+  width: 350px;
+  padding: 20px;
+  margin: 10px;
+}
+
+/* Gráficos */
+.containerDash .linhaGrafico {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.containerDash .grafico {
+  background-color: grey;
+  width: 45%;
+  height: 500px;
+  padding: 20px;
+  border: solid 3px black;
+  border-radius: 10px;
+  color: white;
+}
+
+/* .containerDash .graficoUnico {
+  background-color: red;
+  width: 90%;
+  padding: 20px;
+  border: solid 5px white;
+  border-radius: 10px;
+  color: white;
+  margin: 0 auto;
+} */

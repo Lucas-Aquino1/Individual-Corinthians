@@ -106,17 +106,17 @@
 
 
 /* Leo Dash */
-.containerDash {
+
+/* .containerDash {
     margin-top: 100px;
     text-align: center;
     background-image: url('../assets/imgs/morumbi-fundo.jpg');
     background-repeat: no-repeat;
-    /* --> Imagem de fundo não se repete */
+    
     background-attachment: fixed;
-    /* --> Imagem de fundo fica fixa */
+   
     padding-bottom: 20px;
-    /* width: auto;
-    height: auto; */
+   
 }
 
 .containerDash {
@@ -166,4 +166,4 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-} 
+}  */
