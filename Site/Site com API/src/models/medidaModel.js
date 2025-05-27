@@ -14,7 +14,7 @@ function buscarUltimasMedidas(idGrafico, limite_linhas) {
 
     if (idGrafico == 2) {
         var instrucaoSql = `
-        SELECT u.nome, r.acertos
+        SELECT u.nome AS Nome, r.acertos AS acertos
         FROM resultadosQuiz r
         JOIN usuario u ON r.idUsuario = u.id
         ORDER BY r.acertos DESC
@@ -27,7 +27,7 @@ function buscarUltimasMedidas(idGrafico, limite_linhas) {
 
     if (idGrafico == 3) {
         var instrucaoSql = `
-        SELECT u.nome, r.porcentagemFinalDeAcertos
+        SELECT u.nome AS Nome, r.porcentagemFinalDeAcertos AS porcentagem
         FROM resultadosQuiz r
         JOIN usuario u ON r.idUsuario = u.id;
     `;

@@ -183,12 +183,14 @@
 
         // Criando estrutura para plotar gráfico - dados
         let legenda = 'Quantidade';
-        let coresGraficoDiffBarra = ['rgb(255, 204, 0)',
-            'rgb(0, 153, 255)',
-            'rgb(0, 204, 102)',
-            'rgb(255, 102, 153)',
-            'rgb(0, 204, 204)',
-            'rgb(255, 153, 51)'];
+        let coresGraficoDiffBarra = [
+                            'rgb(255, 204, 0)',
+                            'rgb(0, 153, 255)',
+                            'rgb(0, 204, 102)',
+                            'rgb(153, 102, 255)',
+                            'rgb(0, 204, 204)',
+                            'rgb(255, 153, 51)'
+                            ];
         let coresGraficoBarra = ['rgb(255, 255, 255)'];
         let coresGrafico = [];
         if (idGrafico == 1) {
@@ -224,26 +226,26 @@
         if (idGrafico == 1) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                labels.push(registro.plano);
-                dados.datasets[0].data.push(registro.contagem);
+                labels.push(registro.socioTorcedor);
+                dados.datasets[0].data.push(registro.total);
             }
         } else if (idGrafico == 2) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                labels.push(registro.regiao);
-                dados.datasets[0].data.push(registro.contagem);
+                labels.push(registro.Nome);
+                dados.datasets[0].data.push(registro.acertos);
             }
         } else if (idGrafico == 3) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                labels.push(registro.desempenho);
-                dados.datasets[0].data.push(registro.contagem);
+                labels.push(registro.Nome);
+                dados.datasets[0].data.push(registro.porcentagem);
             }
         } else if (idGrafico == 4) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                labels.push(registro.faixa_idade);
-                dados.datasets[0].data.push(registro.contagem);
+                labels.push(registro.jogadorPreferido);
+                dados.datasets[0].data.push(registro.total);
             }
         } 
         // else if (idGrafico == 5) {
@@ -324,18 +326,18 @@
         if (idIndicador == 1) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                mensagem.push(registro.plano);
+                mensagem.push(registro.mediaPontuacao);
             }
         } else if (idIndicador == 2) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                mensagem.push(registro.estado);
+                mensagem.push(registro.jogadorPreferido);
             }
         } 
         else if (idIndicador == 3) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                mensagem.push(registro.media);
+                mensagem.push(registro.porcentagemSocios);
             }
         // } else if (idIndicador == 4) {
         //     for (i = 0; i < resposta.length; i++) {
