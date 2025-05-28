@@ -26,7 +26,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+<body onload="obterDadosGrafico(), obterDadosIndicador()">
 
     <div class="janela">
         <div class="header-left">
@@ -36,26 +36,25 @@
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-            <!-- <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div> -->
+        <ul class="linksDash">
+            <li>
+                <a href="index.html" class="link_nav">Home</a>
+            </li>
+            <li>
+                <a href="elenco.html" class="link_nav">Elenco</a>
+            </li>
+            <li>
+                <a href="curiosidades.html" class="link_nav">Curiosidades</a>
+            </li>
+            <li>
+                <a href="quiz.html" class="link_nav">Quiz</a>
+            </li>
 
-            <!-- <div class="btn-nav">
+        </ul>
 
-                <h3>Gráficos</h3>
-
-            </div> -->
-
-
-            <div class="btn-logout">
-                <a href="index.html"></a>
-                <h3><a href="index.html">Voltar</a></h3>
-            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <h3>Logout</h3>
             </div>
 
         </div>
@@ -69,6 +68,20 @@
                 <h1>Dashboard</h1>
             </div> -->
                 <div class="div_indicadores">
+                    <div class="indicador" id="indicador1">
+                        <h4>Pontuação média dos usuários no quiz:</h4>
+                        <h1 id="resultadoQuery1"></h1>
+                    </div>
+                    
+                    <div class="indicador" id="indicador2">
+                        <h4>Jogador favorito dos usuários do site:</h4>
+                        <h1 id="resultadoQuery2"></h1>
+                    </div>
+
+                    <div class="indicador" id="indicador3">
+                        <h4>Usuários que são sócio-torcedores:</h4>
+                        <h1 id="resultadoQuery3"></h1>    
+                    </div>
                     <!-- <div class="indicador" id="indicador1">
                 <h4>Plano de sócio-torcedor preferido dos usários do site:</h4>
                 <h1 id="resultadoQuery1"></h1>
@@ -77,42 +90,29 @@
                 <h4>Estado com maior número de usuários do site:</h4>
                 <h1 id="resultadoQuery2"></h1>
             </div> -->
-                    <div class="indicador" id="indicador1">
-                        <h4>Média de pontuação dos usuários no quiz:</h4>
-                        <h1 id="resultadoQuery1"></h1>
-                    </div>
-                    <div class="indicador" id="indicador2">
-                        <h4>Porcentagem de sócio-torcedores:</h4>
-                        <h1 id="resultadoQuery2"></h1>
-                    </div>
-                    <div class="indicador" id="indicador3">
-                        <h4>Jogador favorito dos usários do site:</h4>
-                        <h1 id="resultadoQuery3"></h1>
-                    </div>
-                    <!-- <div class="indicador" id="indicador6">
-                <h4>Região com maior número de usuários do site:</h4>
-                <h1 id="resultadoQuery6"></h1>
-            </div> -->
+                
                 </div>
 
                 <!-- __________________GRAFICOS_____________ -->
                 <div class="linhaGrafico">
-                    <div class="grafico">
-                        <h1>Quantos usuários do site são sócio-torcedores</h1>
-                        <canvas id="myChartCanvas1"></canvas>
-                    </div>
-                    <div class="grafico">
-                        <h1>Top-5 usuários com mais acertos no nosso quiz</h1>
+                    
+                    <div class="grafico" style="height: 400px;">
+                        <h1>🏆 Top 5 Pontuações no Quiz</h1>
                         <canvas id="myChartCanvas2"></canvas>
                     </div>
 
-                    <div class="grafico">
-                        <h1>Porcentagem de acerto dos usuários do site no quiz</h1>
+                    <div class="grafico" style="height: 400px;">
+                        <h1>Quem já visitou a Neo Química Arena?</h1>
                         <canvas id="myChartCanvas3"></canvas>
                     </div>
+
+                    <div class="grafico" style="height: 750px;">
+                        <h1>Quantos usuários do site são sócio-torcedores</h1>
+                        <canvas id="myChartCanvas1"></canvas>
+                    </div>
                 
-                    <div class="grafico">
-                        <h1>Jogadores preferidos dos usuários do site <br> (5 jogadores mais escolhidos)</h1>
+                    <div class="grafico" style="height: 750px;s">
+                        <h1>Jogadores Preferidos dos Usuários<br></h1>
                         <canvas id="myChartCanvas4"></canvas>   
                     </div>
                 </div>
@@ -171,24 +171,24 @@
 
         // Criando estrutura para plotar gráfico - dados
         let legenda = 'Quantidade';
-        let coresGraficoDiffBarra = [
-            'rgb(255, 204, 0)',
-            'rgb(0, 153, 255)',
-            'rgb(0, 204, 102)',
-            'rgb(153, 102, 255)',
-            'rgb(0, 204, 204)',
-            'rgb(255, 153, 51)'
+        let coresDoGrafico = [
+            'rgb(0, 102, 204)',   // Azul royal
+            'rgb(255, 215, 0)',   // Dourado vibrante
+            'rgb(0, 0, 0)',       // Preto
+            'rgb(240, 240, 240)', // Branco gelo
+            'rgb(0, 51, 102)',    // Azul petróleo
+            'rgb(245, 235, 220)'  // Bege claro 
         ];
-        let coresGraficoBarra = ['rgb(255, 255, 255)'];
+        // let coresGraficoBarra = ['rgb(255, 255, 255)'];
         let coresGrafico = [];
         if (idGrafico == 1) {
-            coresGrafico = coresGraficoDiffBarra;
+            coresGrafico = coresDoGrafico;
         } else if (idGrafico == 2) {
-            coresGrafico = coresGraficoDiffBarra;
+            coresGrafico = coresDoGrafico;
         } else if (idGrafico == 3) {
-            coresGrafico = coresGraficoDiffBarra;
+            coresGrafico = coresDoGrafico;
         } else if (idGrafico == 4) {
-            coresGrafico = coresGraficoDiffBarra;
+            coresGrafico = coresDoGrafico;
         }
         // else if (idGrafico == 5) {
         //     coresGrafico = coresGraficoBarra;
@@ -220,14 +220,14 @@
         } else if (idGrafico == 2) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                labels.push(registro.Nome);
+                labels.push(registro.nome);
                 dados.datasets[0].data.push(registro.acertos);
             }
         } else if (idGrafico == 3) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                labels.push(registro.Nome);
-                dados.datasets[0].data.push(registro.porcentagem);
+                labels.push(registro.visita);
+                dados.datasets[0].data.push(registro.total);
             }
         } else if (idGrafico == 4) {
             for (i = 0; i < resposta.length; i++) {
@@ -261,7 +261,7 @@
         } else if (idGrafico == 3) {
             tipoGrafico = 'bar';
         } else if (idGrafico == 4) {
-            tipoGrafico = 'doughnut';
+            tipoGrafico = 'pie';
         }
         // else if (idGrafico == 5) {
         //     tipoGrafico = 'bar';
@@ -314,35 +314,25 @@
         if (idIndicador == 1) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-                mensagem.push(registro.mediaPontuacao);
+                mensagem.push(registro.media);
             }
-        } else if (idIndicador == 2) {
+        } 
+        else if (idIndicador == 2) {
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
                 mensagem.push(registro.jogadorPreferido);
             }
-        }
+        } 
         else if (idIndicador == 3) {
-            for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                mensagem.push(registro.porcentagemSocios);
+                for (i = 0; i < resposta.length; i++) {
+                    var registro = resposta[i];
+                    mensagem.push(registro.totalSocioTorcedores);
+                }
             }
-            // } else if (idIndicador == 4) {
-            //     for (i = 0; i < resposta.length; i++) {
-            //         var registro = resposta[i];
-            //         mensagem.push(registro.faixa_idade);
-            //     }
-            // } else if (idIndicador == 5) {
-            //     for (i = 0; i < resposta.length; i++) {
-            //         var registro = resposta[i];
-            //         mensagem.push(registro.jogador);
-            //     }
-            // } else if (idIndicador == 6) {
-            //     for (i = 0; i < resposta.length; i++) {
-            //         var registro = resposta[i];
-            //         mensagem.push(registro.regiao);
-            //     }
-        }
+        
+            
+            
+        
 
         console.log('----------------------------------------------')
         console.log('O indicador será plotado com os respectivos valores:')

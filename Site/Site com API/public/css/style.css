@@ -676,7 +676,6 @@ select {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 400px;
 }
 
 .janela .hello h3 {
@@ -689,29 +688,20 @@ select {
   font-weight: 800;
 }
 
-/* .janela .btn-nav {
-  width: 40%;
+.linksDash {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: space-between;
+  gap: 40px;
   color: white;
-  background-color: #e6005a;
-  border-radius: 5px;
   text-align: center;
-  padding: 2% 5%;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 100px;
 }
 
-.janela .btn-nav-white {
-  width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-} */
-
-/* .janela .btn-nav-white h3 {
-  color: #e6005a;
-  padding: 0;
-  margin: 0;
-} */
 
 .btn-logout h3 {
   margin: 0;
@@ -725,10 +715,8 @@ select {
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
-  /* margin-bottom: 100px; */
   cursor: pointer;
-  margin-top: 10px;
-  
+  margin-top: 100px;
 }
 
 /* CONTEÚDO*/
@@ -782,7 +770,7 @@ select {
 .containerDash .grafico {
   background-color: grey;
   width: 45%;
-  height: 500px;
+  height: 750px;
   padding: 20px;
   border: solid 3px black;
   border-radius: 10px;
@@ -798,3 +786,4 @@ select {
   color: white;
   margin: 0 auto;
 } */
+

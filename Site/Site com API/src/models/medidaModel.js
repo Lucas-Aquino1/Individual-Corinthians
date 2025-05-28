@@ -14,7 +14,7 @@ function buscarUltimasMedidas(idGrafico, limite_linhas) {
 
     if (idGrafico == 2) {
         var instrucaoSql = `
-        SELECT u.nome AS Nome, r.acertos AS acertos
+        SELECT u.nome AS nome, r.acertos AS acertos
         FROM resultadosQuiz r
         JOIN usuario u ON r.idUsuario = u.id
         ORDER BY r.acertos DESC
@@ -27,9 +27,16 @@ function buscarUltimasMedidas(idGrafico, limite_linhas) {
 
     if (idGrafico == 3) {
         var instrucaoSql = `
-        SELECT u.nome AS Nome, r.porcentagemFinalDeAcertos AS porcentagem
-        FROM resultadosQuiz r
-        JOIN usuario u ON r.idUsuario = u.id;
+        SELECT 
+            CASE visitouEstadio 
+            WHEN 'S' THEN 'Já foi'
+            WHEN 'N' THEN 'Nunca foi'
+            ELSE 'Não informado'
+            END AS visita,
+        COUNT(*) AS total
+        FROM usuario
+        GROUP BY visita;
+
     `;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
@@ -66,7 +73,7 @@ function buscarUltimasMedidas(idGrafico, limite_linhas) {
 function buscarMedidasEmTempoReal(idIndicador) {
     if (idIndicador == 1) {
         var instrucaoSql = `
-        SELECT ROUND(AVG(porcentagemFinalDeAcertos), 2) AS mediaPontuacao
+        SELECT ROUND(AVG(acertos), 0) media
         FROM resultadosQuiz;
         `;
 
@@ -74,6 +81,7 @@ function buscarMedidasEmTempoReal(idIndicador) {
         return database.executar(instrucaoSql);
     }
 
+    
     if (idIndicador == 2) {
         var instrucaoSql = `
         SELECT jogadorPreferido, COUNT(*) AS total
@@ -82,21 +90,23 @@ function buscarMedidasEmTempoReal(idIndicador) {
         ORDER BY total DESC
         LIMIT 1;
         `;
-
+        
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
     }
-
+    
     if (idIndicador == 3) {
         var instrucaoSql = `
-        SELECT 
-        ROUND(100.0 * SUM(CASE WHEN socioTorcedor = 'S' THEN 1 ELSE 0 END) / COUNT(*), 2) AS porcentagemSocios
-        FROM usuario;
+        SELECT COUNT(*) AS totalSocioTorcedores
+        FROM usuario
+        WHERE socioTorcedor = 'S';
         `;
 
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
     }
+
+
 
     // if (idIndicador == 4) {
     //     var instrucaoSql = `SELECT faixa_idade
