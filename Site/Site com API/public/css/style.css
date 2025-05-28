@@ -770,7 +770,7 @@ select {
 .containerDash .grafico {
   background-color: grey;
   width: 45%;
-  height: 750px;
+  /* height: 750px; */
   padding: 20px;
   border: solid 3px black;
   border-radius: 10px;

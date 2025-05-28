@@ -1,12 +1,15 @@
 var database = require("../database/config");
 
 // SELECT PARA OS GRAFICOS
-function buscarUltimasMedidas(idGrafico, limite_linhas) {
+function buscarUltimasMedidas(idGrafico) {
     if (idGrafico == 1) {
         var instrucaoSql = `
-        SELECT socioTorcedor, COUNT(*) AS total
-        FROM usuario
-        GROUP BY socioTorcedor;
+        SELECT E.nome AS estado, COUNT(U.id) AS total_torcedores
+        FROM usuario U
+        JOIN estado E ON U.idEstado = E.idEstado
+        GROUP BY E.nome
+        ORDER BY total_torcedores DESC
+        LIMIT 5;
         `;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
@@ -55,17 +58,6 @@ function buscarUltimasMedidas(idGrafico, limite_linhas) {
         return database.executar(instrucaoSql);
     }
 
-    // if (idGrafico == 5) {
-    //     var instrucaoSql = `SELECT jog.apelido as apelido, count(*) as contagem
-    //     FROM usuario usu
-    //     INNER JOIN jogador jog on jog.idjogador = usu.fk_jogadorFavorito
-    //     GROUP BY apelido
-    // ORDER BY contagem DESC LIMIT ${limite_linhas}`;
-
-    //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    //     return database.executar(instrucaoSql);
-    // }
-
 }
 
 
@@ -106,34 +98,6 @@ function buscarMedidasEmTempoReal(idIndicador) {
         return database.executar(instrucaoSql);
     }
 
-
-
-    // if (idIndicador == 4) {
-    //     var instrucaoSql = `SELECT faixa_idade
-    //     FROM view_faixaIdade
-    //     WHERE contagem = (SELECT MAX(contagem) FROM view_faixaIdade)`;
-
-    //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    //     return database.executar(instrucaoSql);
-    // }
-
-    // if (idIndicador == 5) {
-    //     var instrucaoSql = `SELECT jogador
-    //     FROM view_jogador
-    //     WHERE contagem = (SELECT MAX(contagem) FROM view_jogador)`;
-
-    //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    //     return database.executar(instrucaoSql);
-    // }
-
-    // if (idIndicador == 6) {
-    //     var instrucaoSql = `SELECT regiao
-    //     FROM view_regiao
-    //     WHERE contagem = (SELECT MAX(contagem) FROM view_regiao)`;
-
-    //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    //     return database.executar(instrucaoSql);
-    // }
 }
 
 module.exports = {

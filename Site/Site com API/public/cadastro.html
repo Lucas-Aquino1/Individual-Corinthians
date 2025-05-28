@@ -50,8 +50,38 @@
         <input type="text" placeholder="Seu nome" id="ipt_nome">
         <p>Email</p>
         <input type="email" placeholder="seuemail@provedor.com" id="ipt_email">
-        <p>CPF</p>
-        <input type="text" placeholder="XXXXXXXXXXX" id="ipt_cpf">
+        <p>Insira seu Estado</p>
+        <select id="ipt_Estado">
+          <option value="vazio">Selecione seu estado</option>
+            <option value="1">Acre</option>
+            <option value="2">Alagoas</option>
+            <option value="3">Amapá</option>
+            <option value="4">Amazonas</option>
+            <option value="5">Bahia</option>
+            <option value="6">Ceará</option>
+            <option value="7">Espírito Santo</option>
+            <option value="8">Goiás</option>
+            <option value="9">Distrito Federal</option>
+            <option value="10">Maranhão</option>
+            <option value="11">Mato Grosso</option>
+            <option value="12">Mato Grosso do Sul</option>
+            <option value="13">Minas Gerais</option>
+            <option value="14">Pará</option>
+            <option value="15">Paraíba</option>
+            <option value="16">Paraná</option>
+            <option value="17">Pernambuco</option>
+            <option value="18">Piauí</option>
+            <option value="19">Rio de Janeiro</option>
+            <option value="20">Rio Grande do Norte</option>
+            <option value="21">Rio Grande do sul</option>
+            <option value="22">Rondônia</option>
+            <option value="23">Roraima</option>
+            <option value="24">Santa Catarina</option>
+            <option value="25">São Paulo</option>
+            <option value="26">Sergipe</option>
+            <option value="27">Tocantins</option>
+        </select>
+
         <p>Senha</p>
         <input type="password" placeholder="***********" id="ipt_senha1">
         <p>Confirmar senha</p>
@@ -132,7 +162,7 @@
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha1.value;
     var confirmacaoSenhaVar = ipt_senha2.value;
-    var cpfVar = ipt_cpf.value;
+    var EstadoVar = ipt_Estado.value;
     var socioTorcedorVar = ipt_sociotorcedorSim.value
     var jogadorPreferidoVar = ipt_jogadorPreferido.value
     var visitouEstadioVar = ipt_visitouEstadio.value
@@ -166,16 +196,14 @@
       cadastroResposta.innerHTML = `Certifique-se de que preencheu os campos 'Senha' e 'Confirmar senha' corretamente.`;
     } else if (senhaTemEspaco || confirmarSenhaTemEspaco) {
       cadastroResposta.innerHTML = `A senha não pode conter espaços.`
-    } else if (cpfVar.length != 11) {
-      cadastroResposta.innerHTML = `O CPF deve conter 11 dígitos.`
-    }
-    else {
-      cadastroResposta.innerHTML = `<b>
-        Cadastro realizado com sucesso!</b><br><br>
-        <a href="login.html">Login</a>
+    } 
+    // else {
+    //   cadastroResposta.innerHTML = `<b>
+    //     Cadastro realizado com sucesso!</b><br><br>
+    //     <a href="login.html">Login</a>
          
-        `
-    }
+    //     `
+    // }
 
 
     // Enviando o valor da nova input
@@ -190,7 +218,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        cpfServer: cpfVar,
+        EstadoServer: EstadoVar,
         socioTorcedorServer: socioTorcedorVar,
         jogadorPreferidoServer: jogadorPreferidoVar,
         visitouEstadioServer: visitouEstadioVar
