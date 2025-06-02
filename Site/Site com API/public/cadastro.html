@@ -53,7 +53,7 @@
         <input type="email" placeholder="seuemail@provedor.com" id="ipt_email">
         <p>Insira seu Estado</p>
         <select id="ipt_Estado">
-          <option value="vazio">Selecione seu estado</option>
+          <option value="naoSelecionado">Selecione seu estado</option>
             <option value="1">Acre</option>
             <option value="2">Alagoas</option>
             <option value="3">Amapá</option>
@@ -91,6 +91,7 @@
         <input type="checkbox" id="ipt_sociotorcedor"> Sim
         <p>Qual seu jogador preferido?</p>
         <select name="jogadores" id="ipt_jogadorPreferido">
+          <option value="naoSelecionado">Selecione seu jogador preferido</option>
           <option value="Yuri Alberto">Yuri Alberto</option>
           <option value="Rodrigo Garro">Rodrigo Garro</option>
           <option value="Memphis">Memphis</option>
@@ -206,13 +207,24 @@
     // Verificando se há algum campo em branco
     if (nomeVar == '' || emailVar == '' || EstadoVar == '' || senhaVar == '' || confirmacaoSenhaVar == '') {
       cadastroResposta.innerHTML = `Por favor, preencha todos os campos.`
+      return;
     } else if (emailTemArroba == false) {
       cadastroResposta.innerHTML = `Insira um email válido.`
+      return;
     } else if (senhaVar != confirmacaoSenhaVar) {
       cadastroResposta.innerHTML = `Certifique-se de que preencheu os campos 'Senha' e 'Confirmar senha' corretamente.`;
+      return;
     } else if (senhaTemEspaco || confirmarSenhaTemEspaco) {
       cadastroResposta.innerHTML = `A senha não pode conter espaços.`
-    } 
+      return;
+    } else if (EstadoVar == "naoSelecionado"){
+      cadastroResposta.innerHTML = `Você precisa selecionar seu Estado.`
+      return;
+    }
+    else if (jogadorPreferidoVar == "naoSelecionado"){
+      cadastroResposta.innerHTML = `Você precisa selecionar seu jogador preferido.`
+      return;
+    }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
