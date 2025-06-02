@@ -88,7 +88,7 @@
         <p>Confirmar senha</p>
         <input type="password" placeholder="***********" id="ipt_senha2">
         <p>Você é sócio do programa Fiel Torcedor?</p>
-        <input type="checkbox" id="ipt_sociotorcedorSim"> Sim
+        <input type="checkbox" id="ipt_sociotorcedor"> Sim
         <p>Qual seu jogador preferido?</p>
         <select name="jogadores" id="ipt_jogadorPreferido">
           <option value="Yuri Alberto">Yuri Alberto</option>
@@ -178,10 +178,11 @@
     var senhaVar = ipt_senha1.value;
     var confirmacaoSenhaVar = ipt_senha2.value;
     var EstadoVar = ipt_Estado.value;
-    var socioTorcedorVar = ipt_sociotorcedorSim.value
+    var socioTorcedorVar = ipt_sociotorcedor.checked
     var jogadorPreferidoVar = ipt_jogadorPreferido.value
-    var visitouEstadioVar = ipt_visitouEstadio.value
+    var visitouEstadioVar = ipt_visitouEstadio.checked
 
+    // FAZENDO LÓGICA PARA SALVAR NO BANCO COMO 'S' ou 'N'
     if(socioTorcedorVar){
       socioTorcedorVar = "S"
     } else {
@@ -212,14 +213,6 @@
     } else if (senhaTemEspaco || confirmarSenhaTemEspaco) {
       cadastroResposta.innerHTML = `A senha não pode conter espaços.`
     } 
-    // else {
-    //   cadastroResposta.innerHTML = `<b>
-    //     Cadastro realizado com sucesso!</b><br><br>
-    //     <a href="login.html">Login</a>
-         
-    //     `
-    // }
-
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
