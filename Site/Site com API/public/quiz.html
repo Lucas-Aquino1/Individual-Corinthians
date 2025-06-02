@@ -11,7 +11,8 @@
     <script src="sessao.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="icon" type="image/x-icon" href="imgs/simboloPNG.png">
+    
 </head>
 
 
@@ -113,9 +114,21 @@
         <div class="redes-sociais">
             <h4>Redes sociais</h4>
             <ul>
-                <li><img src="imgs/instagram.png" alt=""></li>
-                <li><img src="imgs/youtube.png" alt=""></li>
-                <li><img src="imgs/linkedin-Photoroom.png" alt=""></li>
+                <li>
+                    <a href="https://www.instagram.com/corinthians">
+                    <img src="imgs/instagram.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@corinthians">
+                    <img src="imgs/youtube.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/sccorinthians/?originalSubdomain=br">
+                    <img src="imgs/linkedin-Photoroom.png" alt="">
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="logo">
@@ -208,11 +221,11 @@
             "alternativaCorreta": "alternativaB"
         },
         {
-            "pergunta": "Qual foi o recorde histórico conquistado pelo Corinthians no estádio da Vila Belmiro em 2011?",
-            "alternativaA": "Maior goleada no Santos",
-            "alternativaB": "Vitória que garantiu o título da Libertadores",
-            "alternativaC": "Primeira vitória em finais",
-            "alternativaD": "Quebra de invencibilidade do Santos na Vila",
+            "pergunta": "Qual é o maior artilheiro da história do Corinthians?",
+            "alternativaA": "Yuri Alberto",
+            "alternativaB": "Ángel Romero",
+            "alternativaC": "Baltazar",
+            "alternativaD": "Cláudio Christóvam",
             "alternativaCorreta": "alternativaD"
         },
         {
@@ -401,10 +414,10 @@
 
         document.getElementById('jogo').classList.add("text-new-gray")
 
-        btnProx.disabled = true
+        // btnProx.disabled = true
         btnSubmeter.disabled = true
         btnConcluir.disabled = false
-        btnTentarNovamente.disabled = false
+        // btnTentarNovamente.disabled = false
 
 
     }

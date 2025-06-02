@@ -6,69 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home</title>
+    <title>Curiosidades</title>
 
     <script src="./js/sessao.js"></script>
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="imgs/simboloPNG.png">
 
 </head>
 
 <body>
-  <div class="div_nav">
-      <a href="index.html"><img src="imgs/logoPreto2.png" alt="Simbolo Corinthians" id="img_logo_nav"></a>
-      <ul class="links">
-          <li>
-              <a href="index.html" class="link_nav">Home</a>
-          </li>
-          <li>
-              <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
-          </li>
-          <li>
-              <a href="elenco.html" class="link_nav">Elenco</a>
-          </li>
-          <li>
-              <a href="curiosidades.html" class="link_nav">Curiosidades</a>
-          </li>
-          <li>
-              <a href="quiz.html" class="link_nav">Quiz</a>
-          </li>
-          <li id="login">
-              <a href="login.html" class="link_nav">Login</a>
-          </li>
-          
-      </ul>
-  </div>
+    <div class="div_nav">
+        <a href="index.html"><img src="imgs/logoPreto2.png" alt="Simbolo Corinthians" id="img_logo_nav"></a>
+        <ul class="links">
+            <li>
+                <a href="index.html" class="link_nav">Home</a>
+            </li>
+            <li>
+                <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
+            </li>
+            <li>
+                <a href="elenco.html" class="link_nav">Elenco</a>
+            </li>
+            <li>
+                <a href="curiosidades.html" class="link_nav">Curiosidades</a>
+            </li>
+            <li>
+                <a href="quiz.html" class="link_nav">Quiz</a>
+            </li>
+            <li id="login">
+                <a href="login.html" class="link_nav">Login</a>
+            </li>
+
+        </ul>
+    </div>
 
     <div class="curiosidade">
         <button id="gerarCuriosidade" onclick="gerarCuriosidade()">GERAR CURIOSIDADE</button>
-        
+
         <div class="boxCuriosidade" id="box">
-            
+
         </div>
-    </div>      
-        
-    
+    </div>
 
 
-  <div class="footer">
-      <div class="redes-sociais">
-          <h4>Redes sociais</h4>
-          <ul>
-              <li><img src="imgs/instagram.png" alt=""></li>
-              <li><img src="imgs/youtube.png" alt=""></li>
-              <li><img src="imgs/linkedin-Photoroom.png" alt=""></li>
-          </ul>
-      </div>
-      <div class="logo">
-          <img src="imgs/logoNav.jpg" alt="">
-      </div>
-      <div class="contato">
-          <h4>Contato</h4>
-          <p>lucas.aquino@sptech.school</p>
-          <p>+55 (11) 999999999</p>
-      </div>
-  </div>
+    <div class="footer">
+        <div class="redes-sociais">
+            <h4>Redes sociais</h4>
+            <ul>
+                
+                <li>
+                    <a href="https://www.instagram.com/corinthians">
+                    <img src="imgs/instagram.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@corinthians">
+                    <img src="imgs/youtube.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/sccorinthians/?originalSubdomain=br">
+                    <img src="imgs/linkedin-Photoroom.png" alt="">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="logo">
+            <img src="imgs/logoNav.jpg" alt="">
+        </div>
+        <div class="contato">
+            <h4>Contato</h4>
+            <p>lucas.aquino@sptech.school</p>
+            <p>+55 (11) 999999999</p>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -76,30 +89,96 @@
     var idUsuario = sessionStorage.ID_USUARIO;
 
     // logica para o botão login virar o botão dashboard depois de fazer login
-    if(idUsuario != null || idUsuario != undefined){
+    if (idUsuario != null || idUsuario != undefined) {
         login.innerHTML = `<a href="dashboard.html" class="link_nav">Dashboard</a>`
     }
 
 
 
 
-    function gerarCuriosidade(){
-        var curiosidade1 = "qq";
-        var curiosidade2 = "aa";
-        var curiosidade3 = "qq";
-        var curiosidade4 = "aa";
-        var curiosidade5 = "jj";
-        var curiosidade6 = "rr";
-        var curiosidade7 = "ss";
-        var curiosidade8 = "hh";
+    function gerarCuriosidade() {
+        var curiosidade1 = `
+        <h2>Origem do nome</h2>
+        <p>
+    O nome "Corinthians" foi adotado em homenagem ao Corinthian Football Club, uma equipe amadora inglesa que excursionou pelo Brasil em 1910.
+    Os fundadores do clube paulista, encantados com o estilo de jogo e o espírito esportivo dos ingleses, decidiram batizar o novo time com o mesmo nome, simbolizando elegância e fair play.
+    Em 2015, o Sport Club Corinthians Paulista chegou a enfrentar o próprio Corinthian-Casuals em um jogo amistoso na Neo Quimica Arena, onde a equipe do Corinthians venceu o Corinthian-Casuals por 3x0, com 2 gols do Luciano e um do Danilo.
+        </p>
+    <img src="imgs/corinthian-casuals.jpg" alt="Corinthian-Casuals e Corinthians" width="400px"/>
+        `;
+
+        var curiosidade2 = `
+        <h2>Campeão mundial invicto em 2012</h2>
+        <p>
+    Em 2012, o Corinthians conquistou o Mundial de Clubes da FIFA de forma invicta, derrotando o Chelsea por 1 a 0 na final, com gol de Paolo Guerrero.
+    A campanha foi marcada por uma defesa sólida, que não sofreu gols durante todo o torneio, consolidando o clube no cenário internacional.
+        </p>
+    <img src="imgs/guerreromundial.png" alt="Guerrero comemora o gol do título mundial" width="400px" />
+        `;
+
+        var curiosidade3 = `
+        <h2>O maior campeão paulista</h2>
+        <p>
+    O Corinthians é o clube com mais títulos do Campeonato Paulista, somando 31 conquistas.
+    Desde os primeiros anos do torneio, o Timão demonstrou sua força no cenário estadual, consolidando-se como uma potência do futebol paulista.
+    O último título conquistado foi em 2025, em cima do seu maior rival, o Palmeiras. O jogo de ida contou com um gol de Yuri Alberto e no jogo de volta, na Neo Quimica Arena, a partida terminou empatada contando com um penalti defendido por Hugo Souza, garantindo assim a conquista do título para a equipe alvinegra!
+        </p>
+    <img src="imgs/titulopaulista.png" alt="Taça do Paulistão com jogadores do Corinthians" width="400" />
+        `;
+
+        var curiosidade4 = `
+            <h2>Recorde de público no estádio rival</h2>
+        <p>
+    O recorde histórico de público do Estádio do Morumbi pertence a uma partida do Corinthians. Em 9 de outubro de 1977, mais de <b>146 mil torcedores</b> lotaram o estádio para assistir à final do Campeonato Paulista entre <b>Corinthians e Ponte Preta</b>.
+    Foi nessa ocasião que o Timão quebrou um jejum de 23 anos sem títulos e conquistou um dos campeonatos mais emocionantes de sua história. A festa da Fiel torcida naquela noite entrou para a memória do futebol brasileiro e selou de vez a mística do Morumbi como palco de grandes conquistas.
+        </p>
+    <img src="imgs/recordemorumbi.png" alt="Morumbi lotado na final de 1977 entre Corinthians e Ponte Preta" width="400px"/>
+        `;
+
+        var curiosidade5 = `
+            <h2>As casas do poderoso timão</h2>
+        <p>
+    O estádio do Corinthians é a Neo Química Arena, que ganhou esse nome apenas em setembro de 2020. Apelidado de Itaquerão, o local recebeu a partida de abertura da Copa do Mundo de 2014, ano em que foi inaugurado. O primeiro estádio do time foi o Ponte Grande, aberto em 1918. Ele ficava onde hoje é a Ponte das Bandeiras, na Marginal Tietê. Em 1926, o Corinthians comprou o terreno do Parque São Jorge e, em 1928, reinaugurou a Fazendinha. Com o crescimento da torcida e a inauguração do Pacaembu, em 1940, o Timão passou a ter mando de jogo no estádio municipal e encerrou a parceria apenas com a inauguração de sua nova casa, na Zona Leste de São Paulo. 
+        </p>
+    <img src="imgs/nqacopa.png" alt="Neo Quimica Arena na Copa do Mundo de 2014" width="400px"/>
+        `;
+
+        var curiosidade6 = `
+        <h2>O mascote do corinthians</h2>
+        <p>
+    O mascote do Corinthians, o icônico <b>Mosqueteiro</b>, tem origem em um episódio marcante da história do clube. Após uma vitória corajosa em um amistoso contra o time argentino Barracas, em 1929, o jornal A Gazeta Esportiva publicou uma crônica exaltando a bravura dos jogadores corintianos. 
+    O autor comparou o espírito de luta e a união do time com os personagens do livro <em>Os Três Mosqueteiros</em>, de Alexandre Dumas — todos por um e um por todos!
+    A partir daí, o apelido pegou entre os torcedores e a imprensa, se consolidando como o mascote oficial do clube. Desde então, o Mosqueteiro simboliza a valentia, a lealdade e a combatividade que fazem parte da alma corinthiana.
+        </p>
+    <img src="imgs/mosqueteiro.jpg" alt="Mosqueteiro mascote do Corinthians" width="400px"/>
+        `;
+
+        var curiosidade7 = `
+        <h2>Invasão Corinthiana ao Japão</h2>
+        <p>
+    Em 16 de dezembro de 2012, o Corinthians venceu o Chelsea por 1 a 0 e conquistou seu segundo título mundial, diante de mais de 68 mil torcedores no estádio de Yokohama, no Japão. O que mais chamou a atenção, porém, foi o fenômeno que ficou conhecido como a “Invasão Corinthiana ao Japão”.
+    Estima-se que cerca de <b>30 mil torcedores brasileiros</b> cruzaram o planeta para apoiar o Timão, criando um verdadeiro clima de jogo em casa, mesmo em solo asiático.
+    A presença massiva da Fiel foi tão impressionante que emocionou até os japoneses, que ficaram surpresos com a paixão, os cânticos incessantes e o respeito dos torcedores. A mídia local chegou a comparar os corinthianos a uma "nação itinerante", destacando o comportamento exemplar e o amor incondicional ao clube. Foi um momento histórico que elevou ainda mais a reputação da torcida corinthiana no mundo.
+        </p>
+    <img src="imgs/invasao-corinthiana.jpg" alt="Invasão Corinthiana no Japão 2012" width="400px"/>
+        `;
+
+        var curiosidade8 = `
+        <h2>Craque internacional que vestiu o manto</h2>
+        <p>
+  Pouca gente se lembra, mas o lendário atacante colombiano <b>Freddy Rincón</b>, que brilhou com a camisa da seleção da Colômbia e atuou no Real Madrid, também teve uma passagem marcante pelo Corinthians. Rincón jogou no clube entre 1997 e 2000 e foi peça fundamental na conquista do Campeonato Brasileiro de 1998 e 1999, além do histórico título do Mundial de Clubes da FIFA em 2000, onde foi capitão da equipe.
+  Com sua força, inteligência tática e liderança, Rincón ganhou o respeito da Fiel e é lembrado com carinho como um dos grandes estrangeiros da história do clube.
+        </p>
+    <img src="imgs/rincon.jpg" alt="Freddy Rincón no Corinthians" width="400px"/>
+        `;
 
 
-        const vetorCuriosidade = [curiosidade1, curiosidade2, 
-                                  curiosidade3, curiosidade4, 
-                                  curiosidade5, curiosidade6, 
-                                  curiosidade7, curiosidade8
-                                ];
-
+        const vetorCuriosidade = [
+            curiosidade1, curiosidade2,
+            curiosidade3, curiosidade4,
+            curiosidade5, curiosidade6,
+            curiosidade7, curiosidade8
+        ];
 
 
         const curiosidadeAleatoria = vetorCuriosidade[Math.round(Math.random() * (vetorCuriosidade.length - 1))]
@@ -108,7 +187,7 @@
 
         // pra fazer aparecer a box com a curiosidade
         box.style.display = "block";
-        box.textContent = curiosidadeAleatoria;
+        box.innerHTML = curiosidadeAleatoria;
 
     }
 </script>

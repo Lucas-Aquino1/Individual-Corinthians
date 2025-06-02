@@ -631,10 +631,10 @@ select {
 .curiosidade .boxCuriosidade {
     display: none; 
     margin-top: 100px;
-    padding: 200px;
+    padding: 100px;
     background-color: white;
     border-radius: 8px;
-    width: 300px;
+    width: 400px;
     text-align: center;
 }
 
@@ -711,7 +711,7 @@ select {
 .janela .btn-logout {
   width: 30%;
   background-color: #32b9cd;
-  color: white;
+  color: black;
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
@@ -724,7 +724,7 @@ select {
   margin-left: 15%;
   width: 85%;
   padding: 40px 20px;
-  background-color: azure;
+  background: linear-gradient(to right, lightgray, white);
   min-height: 100%;
   box-sizing: border-box;
 }

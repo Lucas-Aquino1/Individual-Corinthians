@@ -9,6 +9,7 @@
     <title>Dashboard</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="imgs/simboloPNG.png">
 
     <script src="../js/sessao.js"></script>
 
@@ -86,12 +87,12 @@
                 <!-- __________________GRAFICOS_____________ -->
                 <div class="linhaGrafico">
 
-                    <div class="grafico" style="height: 400px;">
+                    <div class="grafico" style="height: 500px;">
                         <h1>🏆 Top 5 Pontuações no Quiz</h1>
                         <canvas id="myChartCanvas2"></canvas>
                     </div>
 
-                    <div class="grafico" style="height: 400px;">
+                    <div class="grafico" style="height: 500px;">
                         <h1>Quantas usuários já visitaram a Neo Química Arena</h1>
                         <canvas id="myChartCanvas3"></canvas>
                     </div>
@@ -250,8 +251,8 @@
             data: dados,
         };
 
+        // MUDANDO COR DO FUNDO DOS GRÁFICOS PARA NÃO FICAR APAGADO
         Chart.defaults.color = '#000';
-
         // Adicionando na tela PELO ID
         let myChart = new Chart(
             document.getElementById(`myChartCanvas${idGrafico}`),
