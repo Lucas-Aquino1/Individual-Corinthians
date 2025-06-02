@@ -17,10 +17,14 @@ function buscarUltimasMedidas(idGrafico) {
 
     if (idGrafico == 2) {
         var instrucaoSql = `
-        SELECT u.nome AS nome, r.acertos AS acertos
-        FROM resultadosQuiz r
+        SELECT u.nome AS nome, r.maiorPontuacao AS acertos
+        FROM (
+            SELECT idUsuario, MAX(acertos) AS maiorPontuacao
+            FROM resultadosQuiz
+            GROUP BY idUsuario
+        ) AS r
         JOIN usuario u ON r.idUsuario = u.id
-        ORDER BY r.acertos DESC
+        ORDER BY r.maiorPontuacao DESC
         LIMIT 5;
         `;
 

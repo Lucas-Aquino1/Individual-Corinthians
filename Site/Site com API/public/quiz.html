@@ -427,6 +427,9 @@
         // calculo de Arq Comp
         var porcentagemFinalDeAcertos = (pontuacaoFinal / quantidadeDeQuestoes) * 100;
 
+        btnConcluir.disabled = true
+
+
         fetch("/quiz/salvarResultado", {
             method: "POST",
             headers: {
