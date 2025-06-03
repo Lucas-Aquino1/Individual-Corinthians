@@ -129,7 +129,10 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
 
     function obterDadosGrafico() {
+
+        // USANDO FOR PARA PERCORRER TODOS OS 4 GRÁFICOS
         for (let idGrafico = 1; idGrafico <= 4; idGrafico++) {
+
             console.log(idGrafico);
             fetch(`/medidas/ultimas/${idGrafico}`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
@@ -147,7 +150,9 @@
                 .catch(function (error) {
                     console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                 });
+
         }
+
     }
 
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
@@ -162,7 +167,18 @@
 
         // Criando LISTA DE CORES PARA O GRAFICO
         let legenda = 'Quantidade';
-        let coresDoGrafico = [
+        //MUDAR
+
+        // let coresDoGrafico = [
+        //     'rgb(0, 102, 204)',   // Azul royal
+        //     'rgb(255, 215, 0)',   // Dourado vibrante
+        //     'rgb(0, 0, 0)',       // Preto
+        //     'rgb(240, 240, 240)', // Branco gelo
+        //     'rgb(0, 51, 102)',    // Azul petróleo
+        //     'rgb(245, 235, 220)'  // Bege claro 
+        // ];
+
+        let coresGrafico = [
             'rgb(0, 102, 204)',   // Azul royal
             'rgb(255, 215, 0)',   // Dourado vibrante
             'rgb(0, 0, 0)',       // Preto
@@ -170,17 +186,15 @@
             'rgb(0, 51, 102)',    // Azul petróleo
             'rgb(245, 235, 220)'  // Bege claro 
         ];
-
-        let coresGrafico = [];
-        if (idGrafico == 1) {
-            coresGrafico = coresDoGrafico;
-        } else if (idGrafico == 2) {
-            coresGrafico = coresDoGrafico;
-        } else if (idGrafico == 3) {
-            coresGrafico = coresDoGrafico;
-        } else if (idGrafico == 4) {
-            coresGrafico = coresDoGrafico;
-        }
+        // if (idGrafico == 1) {
+        //     coresGrafico = coresDoGrafico;
+        // } else if (idGrafico == 2) {
+        //     coresGrafico = coresDoGrafico;
+        // } else if (idGrafico == 3) {
+        //     coresGrafico = coresDoGrafico;
+        // } else if (idGrafico == 4) {
+        //     coresGrafico = coresDoGrafico;
+        // }
 
         let dados = {
             labels: labels,
@@ -253,6 +267,7 @@
 
         // MUDANDO COR DO FUNDO DOS GRÁFICOS PARA NÃO FICAR APAGADO
         Chart.defaults.color = '#000';
+
         // Adicionando na tela PELO ID
         let myChart = new Chart(
             document.getElementById(`myChartCanvas${idGrafico}`),
