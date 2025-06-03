@@ -17,28 +17,29 @@
 
 <body>
   <div class="div_nav">
-    <a href="index.html"><img src="imgs/logoPreto2.png" alt="Simbolo Corinthians" id="img_logo_nav"></a>
-    <ul class="links">
-      <li>
-        <a href="index.html" class="link_nav">Home</a>
-      </li>
-      <li>
-        <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
-      </li>
-      <li>
-        <a href="elenco.html" class="link_nav">Elenco</a>
-      </li>
-      <li>
-        <a href="curiosidades.html" class="link_nav">Curiosidades</a>
-      </li>
-      <li>
-        <a href="quiz.html" class="link_nav">Quiz</a>
-      </li>
-      <li>
-        <a href="login.html" class="link_nav">Login</a>
-      </li>
-    </ul>
-  </div>
+        <a href="index.html"><img src="imgs/logoPreto2.png" alt="Simbolo Corinthians" id="img_logo_nav"></a>
+        <ul class="links">
+            <li>
+                <a href="index.html" class="link_nav">Home</a>
+            </li>
+            <li>
+                <a href="sobreNos.html" class="link_nav">Sobre Mim</a>
+            </li>
+            <li id="elenco">
+                <a href="elenco.html" class="link_nav">Elenco</a>
+            </li>
+            <li id="curiosidades">
+                <a href="curiosidades.html" class="link_nav">Curiosidades</a>
+            </li>
+            <li id="quiz">
+                <a href="quiz.html" class="link_nav">Quiz</a>
+            </li>
+            <li id="login">
+                <a href="login.html" class="link_nav">Login</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
   <div class="containerC">
@@ -165,6 +166,14 @@
 </html>
 
 <script>
+
+  var idUsuario = sessionStorage.ID_USUARIO;
+  
+  if(idUsuario == null || idUsuario == undefined){
+        elenco.style.display = "none";
+        curiosidades.style.display = "none";
+        quiz.style.display = "none";
+    }
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
   // let listaEmpresasCadastradas = [];
