@@ -10,7 +10,7 @@ CREATE DATABASE IF NOT EXISTS corinthians;
 
 USE corinthians;
 
-CREATE TABLE Estado (
+CREATE TABLE estado (
 	idEstado INT PRIMARY KEY,
     sigla CHAR(2),
     nome VARCHAR(50),
@@ -95,4 +95,5 @@ delete from resultadosQuiz where idQuiz = 10;
 select * from usuario;
 select * from resultadosQuiz;
 
+show tables;
 
