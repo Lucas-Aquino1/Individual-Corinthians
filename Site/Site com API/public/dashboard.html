@@ -27,7 +27,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body onload="obterDadosGrafico(), obterDadosIndicador()">
+<body onload="obterDados()">
 
     <div class="janela">
         <div class="header-left">
@@ -62,7 +62,7 @@
 
 
 
-        <!-- _______________KPIS___________________ -->
+        <!-- _______________KPI___________________ -->
         <div class="conteudoDash">
             <div class="containerDash">
 
@@ -84,17 +84,19 @@
 
                 </div>
 
-                <!-- __________________GRAFICOS_____________ -->
+        <!-- __________________GRAFICOS_____________ -->
                 <div class="linhaGrafico">
 
                     <div class="grafico" style="height: 500px;">
                         <h1>🏆 Top 5 Pontuações no Quiz</h1>
+                        <!-- <div class="estruturaGraficoBar"> -->
                         <canvas id="myChartCanvas2"></canvas>
+                        <!-- </div> -->
                     </div>
 
                     <div class="grafico" style="height: 500px;">
                         <h1>Quantas usuários já visitaram a Neo Química Arena</h1>
-                        <canvas id="myChartCanvas3"></canvas>
+                        <canvas id="myChartCanvas3" ></canvas>
                     </div>
 
                     <div class="grafico" style="height: 750px;">
@@ -104,7 +106,7 @@
 
                     <div class="grafico" style="height: 750px;">
                         <h1>Jogadores Preferidos dos Usuários<br></h1>
-                        <canvas id="myChartCanvas4"></canvas>
+                        <canvas id="myChartCanvas4" style="margin-top: 50px;"></canvas>
                     </div>
                 </div>
             </div>
@@ -117,18 +119,18 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+    // 1. obterDados -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
     // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
     // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
 
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+    // Esta função *obterDados* busca os últimos dados inseridos em tabela de medidas.
     // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+    // A função *obterDados* também invoca a função *plotarGrafico*
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
 
-    function obterDadosGrafico() {
+    function obterDados() {
 
         // USANDO FOR PARA PERCORRER TODOS OS 4 GRÁFICOS
         for (let idGrafico = 1; idGrafico <= 4; idGrafico++) {
@@ -137,10 +139,12 @@
             fetch(`/medidas/ultimas/${idGrafico}`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`); // os dados são recebidos das querys e armazenados em 'resposta'
+                                                                                     // que é um vetor com json das respostas obtidas pela query
                         resposta.reverse();
 
                         plotarGrafico(resposta, idGrafico);
+                        
 
                     });
                 } else {
@@ -151,6 +155,28 @@
                     console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                 });
 
+        }
+
+
+
+        for (let idIndicador = 1; idIndicador <= 3; idIndicador++) {
+            console.log(idIndicador);
+            fetch(`/medidas/tempo-real/${idIndicador}`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        plotarKPI(resposta, idIndicador);
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
         }
 
     }
@@ -165,19 +191,6 @@
         // Criando VETOR para DAR PUSH DAS LABELS DIRETO DO BANCO
         let labels = [];
 
-        // Criando LISTA DE CORES PARA O GRAFICO
-        let legenda = 'Quantidade';
-        //MUDAR
-
-        // let coresDoGrafico = [
-        //     'rgb(0, 102, 204)',   // Azul royal
-        //     'rgb(255, 215, 0)',   // Dourado vibrante
-        //     'rgb(0, 0, 0)',       // Preto
-        //     'rgb(240, 240, 240)', // Branco gelo
-        //     'rgb(0, 51, 102)',    // Azul petróleo
-        //     'rgb(245, 235, 220)'  // Bege claro 
-        // ];
-
         let coresGrafico = [
             'rgb(0, 102, 204)',   // Azul royal
             'rgb(255, 215, 0)',   // Dourado vibrante
@@ -186,59 +199,62 @@
             'rgb(0, 51, 102)',    // Azul petróleo
             'rgb(245, 235, 220)'  // Bege claro 
         ];
-        // if (idGrafico == 1) {
-        //     coresGrafico = coresDoGrafico;
-        // } else if (idGrafico == 2) {
-        //     coresGrafico = coresDoGrafico;
-        // } else if (idGrafico == 3) {
-        //     coresGrafico = coresDoGrafico;
-        // } else if (idGrafico == 4) {
-        //     coresGrafico = coresDoGrafico;
-        // }
+
 
         let dados = {
             labels: labels,
             datasets: [{
-                label: legenda,
+                label: 'Quantidade',
                 data: [],
                 backgroundColor: coresGrafico,
                 barThickness: 110,
                 borderColor: 'rgb(0, 0, 0)',
-                borderWidth: 4
+                borderWidth: 4,
             }]
         };
+        // MUDANDO COR DO FUNDO DOS GRÁFICOS PARA NÃO FICAR APAGADO
+        Chart.defaults.color = '#000';
 
         console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log('Estes dados foram recebidos pela funcao "obterDados" e passados para "plotarGrafico":')
         console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
+
+        // Quando o idGrafico for 1 (idGrafico esta percorrendo no FOR de 1 a 4), é feito um FOR para percorrer RESPOSTA, que é o VETOR 
+        // que contém os JSON com o resultado da query. Nesse caso, o resultado da query é estado e total_torcedores, e estou dando um .PUSH
+        // para armazenar nos vetores vazios que criei para as labels/rótulo e para data/informações, e assim popular os vetores e gerar o gráfico
         if (idGrafico == 1) {
             for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                labels.push(registro.estado);
-                dados.datasets[0].data.push(registro.total_torcedores);
+                var puxar = resposta[i];
+                labels.push(puxar.estado);
+                dados.datasets[0].data.push(puxar.total_torcedores);
             }
-        } else if (idGrafico == 2) {
+        } 
+        
+        else if (idGrafico == 2) {
             for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                labels.push(registro.nome);
-                dados.datasets[0].data.push(registro.acertos);
+                var puxar = resposta[i];
+                labels.push(puxar.nome);
+                dados.datasets[0].data.push(puxar.acertos);
             }
-        } else if (idGrafico == 3) {
+        } 
+        
+        else if (idGrafico == 3) {
             for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                labels.push(registro.visita);
-                dados.datasets[0].data.push(registro.total);
+                var puxar = resposta[i];
+                labels.push(puxar.visita);
+                dados.datasets[0].data.push(puxar.total);
             }
-        } else if (idGrafico == 4) {
+        } 
+        
+        else if (idGrafico == 4) {
             for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                labels.push(registro.jogadorPreferido);
-                dados.datasets[0].data.push(registro.total);
+                var puxar = resposta[i];
+                labels.push(puxar.jogadorPreferido);
+                dados.datasets[0].data.push(puxar.total);
             }
         }
-
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
@@ -249,7 +265,7 @@
         console.log('----------------------------------------------')
 
         // Escolhendo tipo de gráfico para cada ID
-        let tipoGrafico = 'bar';
+        let tipoGrafico = '';
         if (idGrafico == 1) {
             tipoGrafico = 'doughnut';
         } else if (idGrafico == 2) {
@@ -265,63 +281,52 @@
             data: dados,
         };
 
-        // MUDANDO COR DO FUNDO DOS GRÁFICOS PARA NÃO FICAR APAGADO
-        Chart.defaults.color = '#000';
-
-        // Adicionando na tela PELO ID
+        // Adicionando/Plotando na tela PELO ID
         let myChart = new Chart(
             document.getElementById(`myChartCanvas${idGrafico}`),
             config
         );
     }
 
-    function obterDadosIndicador() {
-        for (let idIndicador = 1; idIndicador <= 3; idIndicador++) {
-            console.log(idIndicador);
-            fetch(`/medidas/tempo-real/${idIndicador}`, { cache: 'no-store' }).then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
 
-                        plotarIndicador(resposta, idIndicador);
 
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-                .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                });
-        }
-    }
-
-    function plotarIndicador(resposta, idIndicador) {
+    // Esta função *plotarKPI* usa os dados capturados na função obterDados para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarKPI* também invoca a função *atualizarGrafico*
+    function plotarKPI(resposta, idIndicador) {
 
         console.log('iniciando plotagem do indicador...');
 
         console.log('----------------------------------------------');
-        console.log('Estes dados foram recebidos pela funcao "obterDadosIndicador" e passados para "plotarIndicador":');
+        console.log('Estes dados foram recebidos pela funcao "obterDados" e passados para "plotarKPI":');
         console.log(resposta);
 
         let mensagem = [];
+
+        // Quando o idIndicador for 1 (KPI 1), vai puxar do model o resultado da query pelo apelido da coluna (media)
+        // e vai guardar no vetor "mensagem", que será mostrado na divIndicador 
         if (idIndicador == 1) {
             for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                mensagem.push(registro.media);
+                var puxar = resposta[i];
+                mensagem.push(puxar.media);
             }
         }
+
+        // Quando o idIndicador for 2 (KPI 2), vai puxar do model o resultado da query pelo apelido da coluna (jogadorPreferido)
+        // e vai guardar no vetor "mensagem", que será mostrado na divIndicador 
         else if (idIndicador == 2) {
             for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                mensagem.push(registro.jogadorPreferido);
+                var puxar = resposta[i];
+                mensagem.push(puxar.jogadorPreferido);
             }
         }
+
+        // Quando o idIndicador for 3 (KPI 3), vai puxar do model o resultado da query pelo apelido da coluna (totalSocioTorcedores)
+        // e vai guardar no vetor "mensagem", que será mostrado na divIndicador 
         else if (idIndicador == 3) {
             for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                mensagem.push(registro.totalSocioTorcedores);
+                var puxar = resposta[i];
+                mensagem.push(puxar.totalSocioTorcedores);
             }
         }
 
@@ -331,8 +336,9 @@
         console.log(mensagem)
         console.log('----------------------------------------------')
 
-        let div = document.getElementById(`resultadoQuery${idIndicador}`);
-        div.innerHTML = mensagem;
+        
+        let divIndicador = document.getElementById(`resultadoQuery${idIndicador}`);
+        divIndicador.innerHTML = mensagem;
     }
 
 </script>

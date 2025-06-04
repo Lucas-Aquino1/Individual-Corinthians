@@ -777,6 +777,22 @@ select {
   color: white;
 }
 
+.grafico #myChartCanvas2 {
+    display: block;
+    margin-top: 50px;
+    width: 100px;
+}
+
+
+
+/* .estruturaGraficoBar {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    height: 500px;  
+    width: 500px;
+} */
+
 /* .containerDash .graficoUnico {
   background-color: red;
   width: 90%;
