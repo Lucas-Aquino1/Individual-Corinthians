@@ -2,10 +2,6 @@
 -- Você precisa executar os comandos no banco de dados para criar as tabelas,
 -- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
-/*
-comandos para mysql server
-*/
-
 CREATE DATABASE IF NOT EXISTS corinthians;
 
 USE corinthians;
@@ -17,7 +13,6 @@ CREATE TABLE estado (
     regiao VARCHAR(20), 
     populacaoMedia INT NOT NULL
 );
-
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -41,7 +36,7 @@ CREATE TABLE resultadosQuiz (
 );
        
        
-insert into Estado (idEstado, sigla, nome, regiao, populacaoMedia) 
+insert into estado (idEstado, sigla, nome, regiao, populacaoMedia) 
 VALUES	(1, 'AC', 'Acre', 'Norte', 830000),
 		(2, 'AL', 'Alagoas', 'Nordeste', 3350000),
 		(3, 'AP', 'Amapá', 'Norte', 877000),
@@ -70,30 +65,11 @@ VALUES	(1, 'AC', 'Acre', 'Norte', 830000),
 		(26, 'SE', 'Sergipe', 'Nordeste', 2300000),
 		(27, 'TO', 'Tocantins', 'Norte', 1600000);
 
-
-
-INSERT INTO usuario (nome, email, senha, idEstado, socioTorcedor, jogadorPreferido, visitouEstadio)
-VALUES 	('Lucas Marques', 'lucas.aquino@sptech.school', 'lucas123', 25, 'S', 'Yuri Alberto', 'S'),      
-		('Lukas Mota', 'lukas.mota@sptech.school', 'lukas123', 21, 'N', 'Yuri Alberto', 'S'),            
-		('Vitorio', 'vitorio@sptech.school', 'vitorio123', 13, 'N', 'Memphis', 'N'),                    
-		('Nicolas Javed', 'nicolas@sptech.school', 'nicolas123', 19, 'N', 'Memphis', 'N'),              
-		('Thiago', 'thiago@sptech.school', 'thiago123', 5, 'N', 'Yuri Alberto', 'S'),                   
-		('Guilherme', 'gui@sptech.school', 'gui123', 24, 'S', 'Yuri Alberto', 'S');                    
-
--- update usuario set id = id - 6;
-
-insert into resultadosQuiz (idUsuario, acertos, porcentagemFinalDeAcertos)
-values (1, '9', '90.00'),
-	   (2, '6', '60.00'),
-       (3, '3', '30.00'),
-       (4, '7', '70.00'),
-       (5, '5', '50.00');
        
-
-delete from resultadosQuiz where idQuiz = 10;
 
 select * from usuario;
 select * from resultadosQuiz;
+select * from estado;
 
 show tables;
 
