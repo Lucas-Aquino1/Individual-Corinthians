@@ -418,13 +418,14 @@ select {
     background-color: grey;
     border-radius: 10px;
     border: solid 2px white;
+    margin-top: 100px;
 }
 
 .containerL {
     background-color: black;
     background-image: url(imgs/fundoarenajogadores.png);
     width: auto;
-    height: 500px;
+    height: 600px;
     background-size: cover;
 }
 

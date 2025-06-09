@@ -121,7 +121,7 @@
     // O gráfico é construído com três funções:
     // 1. obterDados -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
     // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco (NÃO UTILIZADA!)
 
     // Esta função *obterDados* busca os últimos dados inseridos em tabela de medidas.
     // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
@@ -336,7 +336,7 @@
         console.log(mensagem)
         console.log('----------------------------------------------')
 
-        
+
         let divIndicador = document.getElementById(`resultadoQuery${idIndicador}`);
         divIndicador.innerHTML = mensagem;
     }
