@@ -84,19 +84,21 @@
 
                 </div>
 
-        <!-- __________________GRAFICOS_____________ -->
+                <!-- __________________GRAFICOS_____________ -->
                 <div class="linhaGrafico">
 
-                    <div class="grafico" style="height: 500px;">
+                    <div class="grafico">
                         <h1>🏆 Top 5 Pontuações no Quiz</h1>
-                        <!-- <div class="estruturaGraficoBar"> -->
-                        <canvas id="myChartCanvas2"></canvas>
-                        <!-- </div> -->
+                        <div class="conteudoChart">
+                            <div class="chart">
+                                <canvas id="myChartCanvas2"></canvas>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grafico" style="height: 500px;">
                         <h1>Quantas usuários já visitaram a Neo Química Arena</h1>
-                        <canvas id="myChartCanvas3" ></canvas>
+                        <canvas id="myChartCanvas3"></canvas>
                     </div>
 
                     <div class="grafico" style="height: 750px;">
@@ -140,11 +142,11 @@
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`); // os dados são recebidos das querys e armazenados em 'resposta'
-                                                                                     // que é um vetor com json das respostas obtidas pela query
+                        // que é um vetor com json das respostas obtidas pela query
                         resposta.reverse();
 
                         plotarGrafico(resposta, idGrafico);
-                        
+
 
                     });
                 } else {
@@ -230,24 +232,24 @@
                 labels.push(puxar.estado);
                 dados.datasets[0].data.push(puxar.total_torcedores);
             }
-        } 
-        
+        }
+
         else if (idGrafico == 2) {
             for (i = 0; i < resposta.length; i++) {
                 var puxar = resposta[i];
                 labels.push(puxar.nome);
                 dados.datasets[0].data.push(puxar.acertos);
             }
-        } 
-        
+        }
+
         else if (idGrafico == 3) {
             for (i = 0; i < resposta.length; i++) {
                 var puxar = resposta[i];
                 labels.push(puxar.visita);
                 dados.datasets[0].data.push(puxar.total);
             }
-        } 
-        
+        }
+
         else if (idGrafico == 4) {
             for (i = 0; i < resposta.length; i++) {
                 var puxar = resposta[i];

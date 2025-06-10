@@ -785,6 +785,16 @@ select {
     width: 100px;
 }
 
+.conteudoChart {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.chart {
+    width: 1000px;
+    text-align: center;
+}
 
 
 /* .estruturaGraficoBar {
