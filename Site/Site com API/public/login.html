@@ -144,6 +144,9 @@
             if (resposta.ok) {
                 console.log(resposta);
 
+                respostaLogin.innerHTML = `Login realizado com sucesso!<br>Redirecionando...<br>
+                <img src="imgs/circle-loading.gif" id="gif" alt="Gif de Carregamento">`
+
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
